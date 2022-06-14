@@ -7,7 +7,7 @@
     --theme-bg-img: url(./images/icon-moon.svg);
   }
   
-:darkTheme {
+[data-theme="dark"] {
     --main-text-color: hsl(0, 0%, 98%);
     --main-bg-color: hsl(235, 21%, 11%);
     --main-bg-img: url(./images/bg-desktop-dark.jpg);
@@ -54,6 +54,13 @@ h1{
     height: 26px;
     width: 26px;
 }
+
 .themeIcon:hover{
     cursor: pointer;
+}
+
+.themeBtn{
+    text-decoration: none;
+    border: none;
+    background-color: inherit;
 }

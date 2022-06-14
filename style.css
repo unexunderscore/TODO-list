@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+    --main-text-color: hsl(0, 0%, 98%);
+    --main-bg-color: hsl(0, 0%, 98%);
+    --main-bg-img: url(./images/bg-desktop-light.jpg);
+    --theme-bg-img: url(./images/icon-moon.svg);
+  }
+  
+:darkTheme {
+    --main-text-color: hsl(0, 0%, 98%);
+    --main-bg-color: hsl(235, 21%, 11%);
+    --main-bg-img: url(./images/bg-desktop-dark.jpg);
+    --theme-bg-img: url(./images/icon-sun.svg);
+}
+
+*{
+ box-sizing: border-box;
+}
+
+body, html {
+   font-family: 'Josefin Sans', sans-serif;
+   font-size: 18px;
+   margin: 0;
+   color: var(--main-text-color);
+}
+
+main {
+    background-image: var(--main-bg-img);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    text-transform: uppercase;
+    letter-spacing: .4em;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    width: 36%;
+}
+
+.themeIcon {
+    background-image: var(--theme-bg-img);
+    height: 26px;
+    width: 26px;
+}
+.themeIcon:hover{
+    cursor: pointer;
+}

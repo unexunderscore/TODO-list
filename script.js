@@ -1,25 +1,41 @@
 const canYouSee = "Hello there!";
 
-// Checking if the JS connected.
+// Checking if the JS connected
 console.log(canYouSee);
 
- // Wait for document to load
+// Set local storage value for first run if there is no exist value yet. (So default theme is light)
+ if(localStorage == null){
+  localStorage.setItem('data-theme', "light");
+ };
+
+// Checking the current theme from local storage
+ const currentTheme = localStorage.getItem('data-theme');
+ // Loading the theme style
+ document.documentElement.setAttribute("data-theme", currentTheme);
+
+ // Writing out what is the current theme
+ console.log("Current theme: " + currentTheme);
+
+ // Waiting for document to load
  document.addEventListener("DOMContentLoaded", function(event) {
-    document.documentElement.setAttribute("data-theme", "light");
+  
+    // Lock our button in themeSwitcher variable
+    const themeSwitcher = document.getElementById("theme-switcher");
 
-    // Get our button switcher
-    var themeSwitcher = document.getElementById("theme-switcher");
-
-    // When our button gets clicked
+    // When our button gets clicked runs a function (toggle theme)
     themeSwitcher.onclick = function() {
-      // Get the current selected theme, on the first run
-      // it should be `light`
-      var currentTheme = document.documentElement.getAttribute("data-theme");
+
+      // Checking again the current theme (Need after button used, this value will be changed)
+      const currentTheme = localStorage.getItem('data-theme');
 
       // Switch between `dark` and `light`
-      var switchToTheme = currentTheme === "dark" ? "light" : "dark"
+      const switchToTheme = currentTheme === "dark" ? "light" : "dark"
+      // Saving the current theme to local storage
+      localStorage.setItem('data-theme', switchToTheme);
 
       // Set our currenet theme to the new one
       document.documentElement.setAttribute("data-theme", switchToTheme);
+      // Writing out the current theme in console
+      console.log("Current theme: " + switchToTheme);
     }
   });

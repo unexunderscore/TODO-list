@@ -4,9 +4,16 @@ const canYouSee = "Hello there!";
 console.log(canYouSee);
 
 // Set local storage value for first run if there is no exist value yet. (So default theme is light)
- if(localStorage == null){
+ if(localStorage.length < 1){
+  let todoElements = [];
   localStorage.setItem('data-theme', "light");
+  localStorage.setItem('list-id', 1);
+  localStorage.setItem('list-elements', JSON.stringify(todoElements));
  };
+
+ let idCounter = localStorage.getItem('list-id');
+ let todoElements = localStorage.getItem('list-elements');
+ todoElements = JSON.parse(todoElements);
 
 // Checking the current theme from local storage
  const currentTheme = localStorage.getItem('data-theme');
@@ -39,3 +46,37 @@ console.log(canYouSee);
       console.log("Current theme: " + switchToTheme);
     }
   });
+
+
+  const list =  document.getElementById("todo-list");
+  
+  function makeList(element) {
+    const li = document.createElement("li");
+    li.id = "list-item"+idCounter++;
+    localStorage.setItem('list-id', idCounter);
+    li.appendChild(document.createTextNode(element));
+    list.appendChild(li);
+  }
+
+  const inputLayout = document.getElementById("inputTodo");
+  inputLayout.addEventListener("keypress", function(event) {
+	 if (event.key === "Enter") {
+    if(inputLayout.value==0){
+      alert("Please fill the form.");
+    } else {
+      makeList(inputLayout.value);
+      todoElements.push(inputLayout.value);
+      console.log("Add todo: " + inputLayout.value);
+      inputLayout.value = "";
+    }
+    localStorage.setItem('list-elements', JSON.stringify(todoElements));
+ 		event.preventDefault();
+     }
+});
+
+window.onload = function() {
+  if(todoElements.length>0){
+    todoElements.map(element => makeList(element));
+  }
+  
+};

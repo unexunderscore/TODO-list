@@ -48,6 +48,8 @@ main {
 h1{
     text-transform: uppercase;
     letter-spacing: .4em;
+    font-size:  52px;
+    margin-top: 1.5rem;
 }
 
 .header{
@@ -55,7 +57,7 @@ h1{
     justify-content: space-between;
     align-items: center;
     margin-top: 75px;
-    width: 720px;  
+    width: 700px;  
 }
 
 .themeIcon {
@@ -75,10 +77,10 @@ h1{
 }
 
 #inputTodo{
-    width: 720px;
-    height: 60px;
+    width: 700px;
+    height: 65px;
     border: 0px solid transparent;
-    border-radius: 4px;
+    border-radius: 5px;
     padding-top: 0.3rem;
     padding-left: 4rem;
     font-size: 18px;
@@ -103,6 +105,84 @@ h1{
     height: 28px;
     border-radius: 50%;
     position: absolute;
-    margin-top: 0.85rem;
+    margin-top: 1rem;
     margin-left: 1.2rem;
+}
+
+#todo-list{
+    padding-inline-start: 0;
+}
+
+#todo-list li{
+    width: 700px;
+    height: 65px;
+    border: 0px solid transparent;
+    padding-top: 1.2rem;
+    padding-left: 4rem;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: var(--input-bg);
+    border-bottom: 1px solid gray;
+    list-style-type: none;
+    margin-left: 0;
+    color: hsl(236, 9%, 61%);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#todo-list li:first-child{
+    border-radius: 5px 5px 0 0; 
+}
+
+.footer-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 700px;
+    height: 60px;
+    border: 0px solid transparent;
+    padding-top: 1.2rem;
+    font-size: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: var(--input-bg);
+    border-bottom: 1px solid gray;
+    color: hsl(236, 9%, 61%);
+    border-radius: 0 0 5px 5px; 
+    border-bottom: none;
+    margin-top: -1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.filter{
+    display: flex;
+    justify-content: space-around;
+}
+
+.filter div:first-child{
+    margin-right: 1rem;
+}
+
+.filter div:last-child{
+    margin-left: 1rem;
+}
+
+.filter div:hover{
+    cursor: pointer;
+}
+
+.clear{
+    cursor: pointer;
+}
+
+.circle-list{
+    border: 1px solid var(--circle-color);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: -0.2rem;
+    margin-left: -2.8rem;
+}
+
+.circle-list:hover{
+    cursor: pointer;
 }

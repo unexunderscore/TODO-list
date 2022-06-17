@@ -54,6 +54,7 @@ console.log(canYouSee);
     const li = document.createElement("li");
     li.id = "list-item"+idCounter++;
     localStorage.setItem('list-id', idCounter);
+    li.innerHTML='<div class="circle-list"></div>';
     li.appendChild(document.createTextNode(element));
     list.appendChild(li);
   }
